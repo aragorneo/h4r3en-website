@@ -7,9 +7,8 @@ import { useTheme } from 'next-themes'
 import { Sun, Moon, Menu, X } from 'lucide-react'
 
 const navLinks = [
-  { href: '/#about', label: 'About' },
-  { href: '/#projects', label: 'Projects' },
-  { href: '/blog', label: 'Blog' },
+  { href: '/', label: 'Home' },
+  { href: '/blog', label: 'Blog', badge: 'Coming Soon' },
   { href: '/contact', label: 'Contact' },
 ]
 
@@ -27,15 +26,11 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  // Close mobile menu on route change
   useEffect(() => {
     setMobileMenuOpen(false)
   }, [pathname])
 
-  const isActive = (href: string) => {
-    if (href.startsWith('/#')) return pathname === '/'
-    return pathname === href
-  }
+  const isActive = (href: string) => pathname === href
 
   return (
     <header
@@ -53,7 +48,7 @@ export default function Header() {
             className="text-xl font-bold text-slate-900 dark:text-white tracking-tight"
           >
             HD
-            <span className="text-violet-600 dark:text-violet-400">.</span>
+            <span className="text-blue-500 dark:text-blue-400">.</span>
           </Link>
 
           {/* Desktop Nav */}
@@ -62,13 +57,18 @@ export default function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+                className={`inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
                   isActive(link.href)
-                    ? 'text-violet-600 dark:text-violet-400 bg-violet-50 dark:bg-violet-900/20'
-                    : 'text-slate-600 dark:text-slate-300 hover:text-violet-600 dark:hover:text-violet-400 hover:bg-slate-100 dark:hover:bg-slate-800/50'
+                    ? 'text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20'
+                    : 'text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-slate-100 dark:hover:bg-slate-800/50'
                 }`}
               >
                 {link.label}
+                {link.badge && (
+                  <span className="bg-slate-200 dark:bg-slate-700 text-slate-500 dark:text-slate-400 px-1.5 py-0.5 rounded text-[10px] font-semibold uppercase tracking-wide">
+                    Soon
+                  </span>
+                )}
               </Link>
             ))}
           </nav>
@@ -79,13 +79,13 @@ export default function Header() {
               <button
                 onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
                 aria-label="Toggle theme"
-                className="p-2.5 rounded-lg text-slate-500 dark:text-slate-400 hover:text-violet-600 dark:hover:text-violet-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+                className="p-2.5 rounded-lg text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
               >
                 {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
               </button>
             )}
             <button
-              className="md:hidden p-2.5 text-slate-500 dark:text-slate-400 hover:text-violet-600 dark:hover:text-violet-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors"
+              className="md:hidden p-2.5 text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label="Toggle mobile menu"
             >
@@ -107,13 +107,18 @@ export default function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`block px-4 py-2.5 rounded-lg text-sm font-medium transition-colors ${
+                className={`flex items-center gap-2 px-4 py-2.5 rounded-lg text-sm font-medium transition-colors ${
                   isActive(link.href)
-                    ? 'text-violet-600 dark:text-violet-400 bg-violet-50 dark:bg-violet-900/20'
-                    : 'text-slate-600 dark:text-slate-300 hover:text-violet-600 dark:hover:text-violet-400 hover:bg-slate-50 dark:hover:bg-slate-800/50'
+                    ? 'text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20'
+                    : 'text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-slate-50 dark:hover:bg-slate-800/50'
                 }`}
               >
                 {link.label}
+                {link.badge && (
+                  <span className="bg-slate-200 dark:bg-slate-700 text-slate-500 dark:text-slate-400 px-1.5 py-0.5 rounded text-[10px] font-semibold uppercase tracking-wide">
+                    Soon
+                  </span>
+                )}
               </Link>
             ))}
           </nav>
