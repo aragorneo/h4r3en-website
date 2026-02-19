@@ -6,19 +6,21 @@ import Footer from '@/components/Footer'
 
 export const metadata: Metadata = {
   title: {
-    default: 'Hareen Desai | CTO & Co-founder',
+    default: 'Hareen Desai | CEO & AI Strategist',
     template: '%s | Hareen Desai',
   },
   description:
-    'Personal portfolio of Hareen Desai — CTO & Co-founder, AI & ERP Innovator, Spiritual Seeker, and Poet. Building the future of AI-driven data governance at Inventam and Neophoenix.',
+    'Hareen Desai — CEO at Neophoenix.ai, CTO & Co-founder at Inventam Tech Solution. Building revenue-producing AI systems including RAG, GenAI, and enterprise digital solutions.',
   keywords: [
     'Hareen Desai',
+    'CEO',
     'CTO',
     'Co-founder',
-    'AI',
-    'ERP',
-    'Inventam',
+    'AI Strategy',
     'Neophoenix',
+    'Inventam',
+    'RAG',
+    'GenAI',
     'LedgerX',
     'cloud',
     'DevOps',
@@ -27,9 +29,9 @@ export const metadata: Metadata = {
   authors: [{ name: 'Hareen Desai' }],
   openGraph: {
     type: 'website',
-    title: 'Hareen Desai | CTO & Co-founder',
+    title: 'Hareen Desai | CEO & AI Strategist',
     description:
-      'Building the future of AI-driven data governance and enterprise solutions.',
+      'CEO at Neophoenix.ai — driving AI product strategy and building revenue-producing AI systems.',
     siteName: 'Hareen Desai',
   },
 }
